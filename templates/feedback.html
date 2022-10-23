@@ -1,0 +1,99 @@
+{% extends "base.html" %} {% from "_formhelpers.html" import render_field %} {% block nav_feedback %} jmd-nav__list-item-0 cc-nav-current j-nav-current jmd-nav__item--current {% endblock %}{% block content %}
+<div class="jtpl-content content-options cc-content-parent">
+    <div class="jtpl-content__inner content-padding cc-content-parent">
+        <div class="jtpl-breadcrumb breadcrumb-options">
+            <div data-container="navigation">
+                <div class="j-nav-variant-breadcrumb">
+                    <ol itemscope="true" itemtype="http://schema.org/BreadcrumbList">
+                        <li itemscope="true" itemprop="itemListElement" itemtype="http://schema.org/ListItem" class="cc-nav-current j-nav-current"><a href="https://www.chinimtachki.ru/%D0%BE%D0%B1%D1%80%D0%B0%D1%82%D0%BD%D0%B0%D1%8F-%D1%81%D0%B2%D1%8F%D0%B7%D1%8C/" data-link-title="Обратная связь" itemprop="item" class="cc-nav-current j-nav-current"><span itemprop="name">Обратная связь</span></a>
+                            <meta itemprop="position" content="1">
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div id="content_area" data-container="content">
+            <div id="content_start"></div>
+
+            <div id="cc-matrix-1928164420">
+                <div id="cc-m-7646049920" class="j-module n j-header ">
+                    <h1 class="" id="cc-m-header-7646049920">Чем мы можем вам помочь?</h1>
+                </div>
+                <div id="cc-m-7646050120" class="j-module n j-hgrid ">
+                    <div class="cc-m-hgrid-column" style="width: 65.43%;">
+                        <div id="cc-matrix-1928165620">
+                            <div id="cc-m-7653743220" class="j-module n j-textWithImage ">
+                                <figure class="cc-imagewrapper cc-m-image-align-1">
+                                    <img src="./static/img/photo_k.jpg" alt="" class="" data-src-width="528" data-src-height="798" data-src="https://image.jimcdn.com/app/cms/image/transf/dimension=87x1024:format=jpg/path/s1faea6e25e26af0b/image/ia0ae652b982fe7fd/version/1462015078/image.jpg"
+                                        data-image-id="5243686020">
+
+                                </figure>
+                                <div>
+                                    <div id="cc-m-textwithimage-7653743220" data-name="text" data-action="text" class="cc-m-textwithimage-inline-rte">
+                                        <p>
+                                            <strong>Кристина Макурина</strong>
+                                        </p>
+
+                                        <p>
+                                            менеджер по работе с клиентами
+                                        </p>
+
+                                        <p>
+                                            &nbsp;
+                                        </p>
+
+                                        <p>
+                                            Будем рады ответить на все ваши вопросы!
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="cc-clear"></div>
+                            </div>
+                            {% with messages = get_flashed_messages() %} {% if messages %}
+                            <ul class=flashes>
+                                {% for message in messages %}
+                                <li>{{ message }}</li>
+                                {% endfor %}
+                            </ul>
+                            {% endif %} {% endwith %}
+                            <form class="form form-horizontal" method="post" role="form">
+                                <dl>{{ render_field(form.mail) }} {{ render_field(form.name) }} {{ render_field(form.text) }} {{ form.hidden_tag() }} {{ form.submit() }}</dl>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="cc-m-hgrid-separator" data-display="cms-only">
+                    <div></div>
+                </div>
+                <div class="cc-m-hgrid-column last" style="width: 32.56%;">
+                    <div id="cc-matrix-1928165720">
+                        <div id="cc-m-8523496220" class="j-module n j-imageSubtitle ">
+                            <figure class="cc-imagewrapper cc-m-image-align-1">
+                                <img srcset="https://image.jimcdn.com/app/cms/image/transf/none/path/s1faea6e25e26af0b/image/id969940597f3c914/version/1523609819/image.png 100w" sizes="(min-width: 100px) 100px, 100vw" id="cc-m-imagesubtitle-image-8523496220" src="./Чем мы можем вам помочь_ - ЧинимТачки_files/1523609819.png"
+                                    alt="" class="" data-src-width="100" data-src-height="100" data-src="https://image.jimcdn.com/app/cms/image/transf/none/path/s1faea6e25e26af0b/image/id969940597f3c914/version/1523609819/image.png" data-image-id="5527750920">
+
+                            </figure>
+
+                            <div class="cc-clear"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cc-m-hgrid-overlay" data-display="cms-only"></div>
+
+                <br class="cc-clear">
+
+            </div>
+            <div id="cc-m-7646050320" class="j-module n j-spacing ">
+                <div class="cc-m-spacer" style="height: 30px;">
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+</div>
+{% endblock %}
