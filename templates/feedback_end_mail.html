@@ -1,4 +1,4 @@
-{% extends "base.html" %} {% block nav_feedback %} jmd-nav__list-item-0 cc-nav-current j-nav-current jmd-nav__item--current {% endblock %}{% block content %}
+{% extends "base.html" %} {% from "_formhelpers.html" import render_field %} {% block nav_feedback %} jmd-nav__list-item-0 cc-nav-current j-nav-current jmd-nav__item--current {% endblock %}{% block content %}
 <div class="jtpl-content content-options cc-content-parent">
     <div class="jtpl-content__inner content-padding cc-content-parent">
         <div class="jtpl-breadcrumb breadcrumb-options">
@@ -43,13 +43,23 @@
                                         </p>
 
                                         <p>
-                                            Вы можете связаться с нами по <a href="mailto:chinimtachki@gmail.com"> почте</a>
+                                            Будем рады ответить на все ваши вопросы!
                                         </p>
                                     </div>
                                 </div>
 
                                 <div class="cc-clear"></div>
                             </div>
+                            {% with messages = get_flashed_messages() %} {% if messages %}
+                            <ul class=flashes>
+                                {% for message in messages %}
+                                <li>{{ message }}</li>
+                                {% endfor %}
+                            </ul>
+                            {% endif %} {% endwith %}
+                            <form class="form form-horizontal" method="post" role="form">
+                                <dl>{{ render_field(form.mail) }} {{ render_field(form.name) }} {{ render_field(form.text) }} {{ form.hidden_tag() }} {{ form.submit() }}</dl>
+                            </form>
                         </div>
                     </div>
                 </div>

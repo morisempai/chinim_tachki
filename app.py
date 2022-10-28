@@ -10,10 +10,10 @@ app = Flask(__name__)
 app.config["MAIL_SERVER"] = "smtp.gmail.com"
 app.config["MAIL_PORT"] = 587
 app.config["MAIL_USE_TLS"] = True
-app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
-app.config["MAIL_USERNAME"] = os.environ.get("MAIL_USERNAME")
-app.config["MAIL_PASSWORD"] = os.environ.get("MAIL_PASSWORD")
-app.config["ADMIN_MAIL"] = os.environ.get("ADMIN_MAIL")
+app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY") or ""
+app.config["MAIL_USERNAME"] = os.environ.get("MAIL_USERNAME") or ""
+app.config["MAIL_PASSWORD"] = os.environ.get("MAIL_PASSWORD") or ""
+app.config["ADMIN_MAIL"] = os.environ.get("ADMIN_MAIL") or ""
 mail = Mail(app)
 
 
@@ -43,8 +43,8 @@ def prices():
 def sitemap():
     return render_template("sitemap.html")
 
-@app.route("/feedback", methods=['GET', 'POST'])
-def feedback():
+# @app.route("/send_mail", methods=['GET', 'POST'])
+def feedback_send_mail():
     form = FeedBackForm(request.form)
     if form.validate_on_submit():
         if send_email(request.form):
@@ -52,7 +52,11 @@ def feedback():
         else:
             flash("Произошла ошибка при отправке сообщения")
             return redirect(url_for('feedback'))
-    return render_template("feedback.html", form=form)
+    return render_template("feedback_send_mail.html", form=form)
+
+@app.route("/feedback", methods=['GET'])
+def feedback():
+    return render_template("feedback.html")
 
 
 if __name__ == "__main__":
