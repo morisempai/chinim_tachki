@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from flask import Flask, render_template, request, flash, redirect, url_for
+from flask import Flask, render_template, request, flash, redirect, url_for, send_file
 from flask_wtf import FlaskForm
 from wtforms import EmailField, TextAreaField, StringField, SubmitField
 from wtforms.validators import DataRequired, Email, Length
@@ -44,6 +44,11 @@ def prices():
 @app.route("/sitemap", methods=['GET'])
 def sitemap():
     return render_template("sitemap.html")
+
+@app.route("/sitemap.xml", methods=['GET'])
+def sitemap_xml():
+    return send_file("sitemap.xml")
+
 
 # @app.route("/send_mail", methods=['GET', 'POST'])
 def feedback_send_mail():
